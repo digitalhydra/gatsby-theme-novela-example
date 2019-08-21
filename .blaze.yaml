@@ -1,0 +1,269 @@
+project:
+  buildStatus: ready
+  external: false
+  provider: github
+  deployment:
+    builds:
+      master:
+        weight: 1
+        id: _lltb43vqz
+        environmentVariables: []
+        branch: master
+    developmentCommand: gatsby develop
+    productionBranch: master
+    publishDirectory: public
+    packager: npm
+    contentDirectory:
+      - assets
+      - content/authors
+      - content/posts
+    buildCommand: gatsby build
+  type: gatsby
+  status: active
+  name: digitalhydra/gatsby-theme-novela-example
+schemas:
+  - definitions:
+      fields:
+        - widget: text
+          name: Title
+          type: string
+          required: true
+          value: ''
+          id: title
+          orderable: true
+          removable: true
+          system: false
+        - orderable: true
+          removable: true
+          system: false
+          widget: SlateEditor
+          name: Content
+          type: string
+          required: true
+          value: ''
+          id: content
+        - value: ''
+          id: excerpt
+          orderable: true
+          removable: true
+          system: false
+          widget: textarea
+          name: Excerpt
+          type: string
+          required: true
+        - name: Hero
+          type: string
+          required: true
+          value: ''
+          id: hero
+          orderable: true
+          removable: true
+          system: false
+          widget: MediaSchema
+        - system: false
+          widget: DatePicker
+          name: Date
+          type: string
+          required: true
+          value: ''
+          id: date
+          orderable: true
+          removable: true
+        - value: ''
+          id: author
+          orderable: true
+          removable: true
+          system: false
+          widget: text
+          name: Author
+          type: string
+          required: true
+      schema:
+        name: Post
+        id: post
+    schema:
+      json:
+        required:
+          - title
+          - content
+          - excerpt
+          - hero
+          - date
+          - author
+        type: object
+        properties:
+          excerpt:
+            title: Excerpt
+            default: ''
+            type: string
+          hero:
+            default: ''
+            type: string
+            title: Hero
+          content:
+            default: ''
+            type: string
+            title: Content
+          date:
+            title: Date
+            default: ''
+            type: string
+          title:
+            title: Title
+            default: ''
+            type: string
+          author:
+            default: ''
+            type: string
+            title: Author
+      name: Post
+      ui:
+        excerpt:
+          'ui:widget': textarea
+        hero:
+          'ui:widget': MediaSchema
+        'ui:order':
+          - title
+          - content
+          - excerpt
+          - hero
+          - date
+          - author
+          - '*'
+        content:
+          'ui:widget': SlateEditor
+        date:
+          'ui:widget': DatePicker
+        title:
+          'ui:widget': text
+        author:
+          'ui:widget': text
+    type: content
+  - type: dataset
+    definitions:
+      schema:
+        name: Authors
+        id: authors
+      fields:
+        - orderable: true
+          removable: true
+          system: false
+          widget: text
+          name: Name
+          type: string
+          required: true
+          value: ''
+          id: name
+        - removable: true
+          system: false
+          widget: MediaSchema
+          name: Avatar
+          type: string
+          required: true
+          value: ''
+          id: avatar
+          orderable: true
+        - widget: textarea
+          name: Bio
+          type: string
+          required: true
+          value: ''
+          id: bio
+          orderable: true
+          removable: true
+          system: false
+        - orderable: true
+          removable: true
+          system: false
+          widget: checkbox
+          name: Featured
+          type: boolean
+          required: true
+          value: ''
+          id: featured
+    schema:
+      json:
+        required:
+          - name
+          - bio
+          - avatar
+          - featured
+          - __hash
+        type: object
+        properties:
+          bio:
+            title: bio
+            default: ''
+            type: string
+          avatar:
+            default: ''
+            type: string
+            title: avatar
+          featured:
+            title: featured
+            default: false
+            type: boolean
+          name:
+            title: name
+            default: ''
+            type: string
+      name: authors
+      ui:
+        name:
+          'ui:widget': text
+        'ui:order':
+          - name
+          - avatar
+          - bio
+          - featured
+          - '*'
+        bio:
+          'ui:widget': textarea
+        avatar:
+          'ui:widget': MediaSchema
+        featured:
+          'ui:widget': checkbox
+      fromDataset: true
+mapping:
+  content:
+    - schema: post
+      path: content/posts/2017-04-30-how-figma-changed-how-we-design/index.mdx
+    - schema: post
+      path: content/posts/2018-04-26-how-figma-changed-how-we-design/index.mdx
+    - schema: post
+      path: content/posts/2017-04-27-building-hoppers-media-centre/index.mdx
+    - schema: post
+      path: content/posts/2018-04-29-understanding-the-gatsby-lifecycle/index.mdx
+    - schema: post
+      path: content/posts/2017-04-28-understanding-the-gatsby-lifecycle/index.mdx
+    - schema: post
+      path: content/posts/2017-04-31-how-figma-changed-how-we-design/index.mdx
+    - schema: post
+      path: content/posts/2019-04-26-building-hoppers-media-centre/index.mdx
+    - schema: post
+      path: content/posts/2019-04-27-how-figma-changed-how-we-design/index.mdx
+    - schema: post
+      path: content/posts/2019-04-31-understanding-the-gatsby-lifecycle/index.mdx
+    - schema: post
+      path: content/posts/2019-04-29-building-the-new-hopper-com/index.mdx
+    - schema: post
+      path: >-
+        content/posts/2017-04-30-why-we-built-a-company-before-a-product/index.mdx
+    - schema: post
+      path: >-
+        content/posts/2018-04-30-why-we-built-a-company-before-a-product/index.mdx
+    - schema: post
+      path: >-
+        content/posts/2019-04-30-why-we-built-a-company-before-a-product/index.mdx
+    - schema: post
+      path: content/posts/2018-04-28-building-hoppers-media-centre/index.mdx
+    - schema: post
+      path: content/posts/2019-04-28-how-figma-changed-how-we-design/index.mdx
+    - schema: post
+      path: content/posts/2018-04-31-building-the-new-hopper-com/index.mdx
+    - schema: post
+      path: content/posts/2018-04-27-how-figma-changed-how-we-design/index.mdx
+  dataset:
+    - schema: authors
+      path: content/authors/authors.yml
+  form: []
